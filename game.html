@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    
+    <script>
+        
+        let randomGenerator = Math.floor(Math.random() * 3)
+        console.log(randomGenerator);
+
+        //----------Computers choice
+        let computerPlay = function() {
+        if (randomGenerator===0) {
+        return "rock";
+        }
+        else if (randomGenerator===1) {
+        return "paper";
+        }
+        else {
+        return "scissors";
+        }
+        };
+        
+        let playerSelection = prompt("Rock, Paper or Scissors?");
+            playerSelection = playerSelection.toLowerCase();
+        
+
+        //------------------Gameplay
+
+        function playGame(computerPlay,playerSelection){
+            if (computerPlay===playerSelection) {
+                return"Game is a tie!";
+                
+            }  else if (playerSelection==="rock" && computerPlay==="scissors"){
+                return `You chose ${playerSelection}, you won! Rock beats Scissors!`;
+                
+             } else if (playerSelection==="scissors" && computerPlay==="paper"){
+                return `You chose ${playerSelection}, you won! Scissors beats Paper!`;
+                
+            } else if (playerSelection==="paper" && computerPlay==="rock"){
+                return `You chose ${playerSelection}, you won! Paper beats Rock!`;
+                
+            } else if (playerSelection==="rock" && computerPlay==="paper"){
+                return `You chose ${playerSelection}, you Lose! Paper beats Rock!`;
+                
+            } else if (playerSelection==="scissors" && computerPlay==="rock"){
+                return `You chose ${playerSelection}, You Lose! Rock beats Scissors!`;
+                
+            } else if (playerSelection==="paper" && computerPlay==="scissors"){
+                return `You chose ${playerSelection}, You Lose! Scissors beats Paper!`;
+                
+            } else {
+                return "Invalid Selection!";
+            }
+
+        };
+        console.log(computerPlay());
+        console.log(playerSelection);
+        console.log(playGame(computerPlay(),playerSelection));
+
+        
+        
+    
+    
+
+
+   </script>
+
+
+  </head>
+  <body>
+   
+  </body>
+</html>
