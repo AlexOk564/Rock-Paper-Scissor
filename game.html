@@ -5,11 +5,15 @@
     
     <script>
         
-        let randomGenerator = Math.floor(Math.random() * 3)
-        console.log(randomGenerator);
-
+        let userScore = 0;
+        let cpuScore = 0; 
+        
+        function game() { 
+        let playerSelection = prompt("Rock, Paper or Scissors?");   
+        let randomGenerator = Math.floor(Math.random() * 3);     
         //----------Computers choice
-        let computerPlay = function() {
+        function computerPlay() {
+           
         if (randomGenerator===0) {
         return "rock";
         }
@@ -21,42 +25,58 @@
         }
         };
         
-        let playerSelection = prompt("Rock, Paper or Scissors?");
-            playerSelection = playerSelection.toLowerCase();
+        
         
 
         //------------------Gameplay
+        
 
-        function playGame(computerPlay,playerSelection){
+        function playGame(playerSelection, computerPlay){
+            
+            playerSelection = playerSelection.toLowerCase();
+            
             if (computerPlay===playerSelection) {
                 return"Game is a tie!";
                 
             }  else if (playerSelection==="rock" && computerPlay==="scissors"){
-                return `You chose ${playerSelection}, you won! Rock beats Scissors!`;
+                userScore++
+                return(`You won! Rock beats Scissors!`);
                 
              } else if (playerSelection==="scissors" && computerPlay==="paper"){
-                return `You chose ${playerSelection}, you won! Scissors beats Paper!`;
+                userScore++
+                return (`You won! Scissors beats Paper!`);
                 
             } else if (playerSelection==="paper" && computerPlay==="rock"){
-                return `You chose ${playerSelection}, you won! Paper beats Rock!`;
+                userScore++
+                return (`You won! Paper beats Rock!`);
                 
             } else if (playerSelection==="rock" && computerPlay==="paper"){
-                return `You chose ${playerSelection}, you Lose! Paper beats Rock!`;
+                cpuScore++
+                return (`You Lose! Paper beats Rock!`);
                 
             } else if (playerSelection==="scissors" && computerPlay==="rock"){
-                return `You chose ${playerSelection}, You Lose! Rock beats Scissors!`;
+                cpuScore++
+                return (`You Lose! Rock beats Scissors!`);
                 
             } else if (playerSelection==="paper" && computerPlay==="scissors"){
-                return `You chose ${playerSelection}, You Lose! Scissors beats Paper!`;
+                cpuScore++
+                return (`You Lose! Scissors beats Paper!`);
                 
             } else {
                 return "Invalid Selection!";
             }
+            
+            
+            
+            
 
         };
-        console.log(computerPlay());
-        console.log(playerSelection);
-        console.log(playGame(computerPlay(),playerSelection));
+        console.log(`You played ${playerSelection}, CPU plays ${computerPlay()}`);
+        console.log(playGame(playerSelection, computerPlay()));
+        console.log(`PlayerScore: ${userScore} CPUscore: ${cpuScore}`);
+        };
+    
+       
 
         
         
