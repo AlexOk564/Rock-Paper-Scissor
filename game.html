@@ -4,25 +4,38 @@
   <head>
     
     <script>
-        
+        let fiveRounds = 0;
         let userScore = 0;
         let cpuScore = 0; 
         
         function game() { 
         let playerSelection = prompt("Rock, Paper or Scissors?");   
-        let randomGenerator = Math.floor(Math.random() * 3);     
+        let randomGenerator = Math.floor(Math.random() * 3);
+
+        function determineWinner(){
+            if (userScore===cpuScore){
+                return("The game is tied!");
+            }else if(userScore>cpuScore){
+                return("You won best out of 5!");
+            }else {
+                return("CPU won best out of 5!");
+                }    
+            
+                
+        };
+
         //----------Computers choice
         function computerPlay() {
            
-        if (randomGenerator===0) {
-        return "rock";
-        }
-        else if (randomGenerator===1) {
-        return "paper";
-        }
-        else {
-        return "scissors";
-        }
+            if (randomGenerator===0) {
+            return "rock";
+            }
+            else if (randomGenerator===1) {
+            return "paper";
+            }
+            else {
+            return "scissors";
+            }
         };
         
         
@@ -65,19 +78,30 @@
             } else {
                 return "Invalid Selection!";
             }
-            
-            
-            
-            
+        
+        };
 
-        };
-        console.log(`You played ${playerSelection}, CPU plays ${computerPlay()}`);
-        console.log(playGame(playerSelection, computerPlay()));
-        console.log(`PlayerScore: ${userScore} CPUscore: ${cpuScore}`);
-        };
+        
+        while (fiveRounds < 5) {
+            
+            console.log(`You played ${playerSelection}, CPU plays ${computerPlay()}`);
+            console.log(playGame(playerSelection, computerPlay()));
+            console.log(`PlayerScore: ${userScore} CPUscore: ${cpuScore}`);
+            fiveRounds++
+            game();
+
+            if (fiveRounds === 5){
+                console.log(determineWinner());
+                break;
+            }
+        }
+
+        
+        
+    };
     
        
-
+    
         
         
     
