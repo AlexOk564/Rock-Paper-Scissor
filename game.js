@@ -68,32 +68,32 @@
                 gameOutcome.textContent="Game is a tie!";
                 
             }  else if (playerSelection==="rock" && computerPlay==="scissors"){
-                userScore++
+                ++userScore
                 
                 gameOutcome.textContent=(`You won! Rock beats Scissors!`);
                 
              } else if (playerSelection==="scissors" && computerPlay==="paper"){
-                userScore++
+                ++userScore
                 
                 gameOutcome.textContent=(`You won! Scissors beats Paper!`);
                 
             } else if (playerSelection==="paper" && computerPlay==="rock"){
-                userScore++
+                ++userScore
                 
                 gameOutcome.textContent=(`You won! Paper beats Rock!`);
                 
             } else if (playerSelection==="rock" && computerPlay==="paper"){
-                cpuScore++
+                ++cpuScore
                 
                 gameOutcome.textContent=(`You Lose! Paper beats Rock!`);
                 
             } else if (playerSelection==="scissors" && computerPlay==="rock"){
-                cpuScore++
+                ++cpuScore
                 
                 gameOutcome.textContent=(`You Lose! Rock beats Scissors!`);
                 
             } else if (playerSelection==="paper" && computerPlay==="scissors"){
-                cpuScore++
+                ++cpuScore
                 
                 gameOutcome.textContent=(`You Lose! Scissors beats Paper!`);
                 
@@ -123,7 +123,7 @@
         
             gameResults.textContent = `You played ${playerSelection}, CPU plays ${cpuPlay()}, `;
             content.textContent = `PlayerScore: ${userScore} CPUscore: ${cpuScore}`;
-            
+            //gameOutcome.textContent = playGame();
             
             
             
@@ -132,7 +132,6 @@
         
     };
     
-  //------------------DOM------------
 
        
     
